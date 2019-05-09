@@ -7,43 +7,81 @@
   
   Each constructor function has unique properties and methods that are defined in their block comments below:
 */
-function GameObject(attributes) {
-    this.createdAt = attributes.createdAt;
-    this.name = attributes.name;
-    this.dimensions = attributes.dimensions;
-  }
 
-GameObject.prototype.destroy = function (){
-  return (`${this.name} was removed from the game`);
-
+class GameObject {
+    constructor(attributes) {
+        this.createdAt = attributes.createdAt;
+        this.name = attributes.name;
+        this.dimensions = attributes.dimensions;
+    }
+destroy() {
+    return `${this.name} was removed from the game`;
 }
-  function CharacterStats(characterStatsAttributes) {
-    GameObject.call (this, characterStatsAttributes);
-    this.healthPoints = characterStatsAttributes.healthPoints;
-    
-  }
+}
 
-CharacterStats.prototype = Object.create(GameObject.prototype);
+// function GameObject(attributes) {
+//     this.createdAt = attributes.createdAt;
+//     this.name = attributes.name;
+//     this.dimensions = attributes.dimensions;
+//   }
 
-CharacterStats.prototype.takeDamage = function (){
+// GameObject.prototype.destroy = function (){
+//   return (`${this.name} was removed from the game`);
+
+// }
+
+
+class CharacterStats extends GameObject {
+    constructor(characterStatsAttributes) {
+        super(characterStatsAttributes)
+        this.healthPoints = characterStatsAttributes.healthPoints;
+}
+
+takeDamage() {
     return (`${this.name} took damage`);
 }
+}
+
+//   function CharacterStats(characterStatsAttributes) {
+//     GameObject.call (this, characterStatsAttributes);
+//     this.healthPoints = characterStatsAttributes.healthPoints;
+    
+//   }
+
+// CharacterStats.prototype = Object.create(GameObject.prototype);
+
+// CharacterStats.prototype.takeDamage = function (){
+//     return (`${this.name} took damage`);
+// }
 
 
-  function Humanoid(humanoidAttributes) {
-    CharacterStats.call (this, humanoidAttributes);
+class Humanoid extends CharacterStats {
+    constructor(humanoidAttributes) {
+    super(humanoidAttributes)
     this.team = humanoidAttributes.team;
     this.weapons = humanoidAttributes.weapons;
     this.language = humanoidAttributes.language;
-  }
-
-
-
-Humanoid.prototype = Object.create(CharacterStats.prototype);
-
-Humanoid.prototype.greet = function (){
-  return (`${this.name} offers a greeting in ${this.language}`);
 }
+
+greet() {
+    return (`${this.name} offers a greeting in ${this.language}`);
+}
+}
+
+//   function Humanoid(humanoidAttributes) {
+//     CharacterStats.call (this, humanoidAttributes);
+//     this.team = humanoidAttributes.team;
+//     this.weapons = humanoidAttributes.weapons;
+//     this.language = humanoidAttributes.language;
+//   }
+
+
+
+// Humanoid.prototype = Object.create(CharacterStats.prototype);
+
+// Humanoid.prototype.greet = function (){
+//   return (`${this.name} offers a greeting in ${this.language}`);
+// }
 
 
 
@@ -143,7 +181,6 @@ Humanoid.prototype.greet = function (){
   console.log(archer.greet()); // Lilith offers a greeting in Elvish.
   console.log(mage.takeDamage()); // Bruce took damage.
   console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
-  console.log(evilArcher.type);
 
 
   // Stretch task: 
