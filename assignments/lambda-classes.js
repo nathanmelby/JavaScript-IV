@@ -13,11 +13,11 @@ class Person {
 }
 
 class Instructor extends Person{
-    constructor (instructorProps) {
-        super(instructorProps)
-        this.specialty = instructorProps.specialty;
-        this.favLanguage = instructorProps.favLanguage;
-        this.catchPhrase = instructorProps.catchPhrase;
+    constructor (properties) {
+        super(properties)
+        this.specialty = properties.specialty;
+        this.favLanguage = properties.favLanguage;
+        this.catchPhrase = properties.catchPhrase;
     }
 
     demo() {
@@ -29,15 +29,15 @@ class Instructor extends Person{
 }
 
 class Student extends Instructor {
-    constructor (studentProps) {
-        super(studentProps)
-            this.previousBackground = studentProps.previousBackground;
-            this.className = studentProps.className;
-            this.favSubjects = studentProps.favSubjects;
+    constructor (properties) {
+        super(properties)
+            this.previousBackground = properties.previousBackground;
+            this.className = properties.className;
+            this.favSubjects = properties.favSubjects;
         }
     
     PRAssignment(){
-      return  `${random.name} has submitted a PR for {subject}`;
+      return  `${this.name} has submitted a PR for {subject}`;
     }
     sprintChallenge() {
        return  `${this.name} has begun sprint challenge on {subject}`;
@@ -45,10 +45,10 @@ class Student extends Instructor {
 }
 
 class ProjectManagers extends Student {
-    constructor (pmProps) {
-        super(pmProps)
-        this.gradClassName = pmProps.gradClassName;
-        this.favInstructor = pmProps.favInstructor;
+    constructor (properties) {
+        super(properties)
+        this.gradClassName = properties.gradClassName;
+        this.favInstructor = properties.favInstructor;
     }
 
     standUp() {
