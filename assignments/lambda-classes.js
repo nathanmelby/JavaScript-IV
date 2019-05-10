@@ -12,50 +12,50 @@ class Person {
     }
 }
 
-class Instructor {
+class Instructor extends Person{
     constructor (instructorProps) {
-        super(properties)
+        super(instructorProps)
         this.specialty = instructorProps.specialty;
         this.favLanguage = instructorProps.favLanguage;
         this.catchPhrase = instructorProps.catchPhrase;
     }
 
     demo() {
-        `Today we are learning about {subject}`;
+       return `Today we are learning about {subject}`;
     }
     grade() {
-        `${student.name} recieves a perfect score on {subject}`;
+       return `${this.name} recieves a perfect score on {subject}`;
     }
 }
 
-class Student {
+class Student extends Instructor {
     constructor (studentProps) {
-        super(instructorProps) {
+        super(studentProps)
             this.previousBackground = studentProps.previousBackground;
             this.className = studentProps.className;
             this.favSubjects = studentProps.favSubjects;
         }
     
     PRAssignment(){
-        `${student.name} has submitted a PR for {subject}`;
+      return  `${random.name} has submitted a PR for {subject}`;
     }
     sprintChallenge() {
-         `${student.name} has begun sprint challenge on {subject}`;
+       return  `${this.name} has begun sprint challenge on {subject}`;
     }   
 }
 
-class ProjectManagers {
+class ProjectManagers extends Student {
     constructor (pmProps) {
-        super(studentProps) {
+        super(pmProps)
         this.gradClassName = pmProps.gradClassName;
         this.favInstructor = pmProps.favInstructor;
     }
 
     standUp() {
-        `${this.name} announces to {channel}, @channel standy times!`;
+       return `${this.name} announces to {channel}, @channel standy times!`;
     }
     debugsCode() {
-        `${this.name} debugs {student.name}'s code on {subject}`;
+      return  `${this.name} debugs {student.name}'s code on {subject}`;
     }
 }
 
@@ -86,7 +86,7 @@ const fred = new Instructor({
     catchPhrase: `OIL! BLACK GOLD`
   });
 
-  const Bill = new Student({
+  const bill = new Student({
     name: 'Bill',
     location: 'Tomah',
     age: 20,
@@ -95,7 +95,7 @@ const fred = new Instructor({
     favSubjects: ['CSS', 'HTML', 'Design']
   });
 
-  const Jill = new Student({
+  const jill = new Student({
     name: 'Jill',
     location: 'Sparta',
     age: 21,
@@ -104,7 +104,7 @@ const fred = new Instructor({
     favSubjects: ['CSS', 'Research', 'Design']
   });
 
-  const Cathy = new ProjectManagers({
+  const cathy = new ProjectManagers({
     name: 'Cathy',
     location: 'Onalaska',
     age: 25,
@@ -112,10 +112,21 @@ const fred = new Instructor({
     favInstructor: ['Jed']
   });
 
-  const Ann = new ProjectManagers({
+  const ann = new ProjectManagers({
     name: 'Ann',
     location: 'La Crosse',
     age: 26,
     gradClassName: 'Web19',
     favInstructor: ['Ted']
   });
+
+
+  console.log(ann.name); //ANN
+  console.log(cathy.gradClassName); // UX1
+  console.log(jill.location); // Sparta
+  console.log(bill.favSubjects); // CSS, HTML, Design
+  console.log(jed.demo()); // 
+  console.log(jill.age); // 21
+  console.log(ted.grade()); 
+  console.log(ted.speak()); 
+  console.log(fred.catchPhrase); 
