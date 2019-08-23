@@ -21,10 +21,10 @@ class Instructor extends Person{
     }
 
     demo() {
-       return `Today we are learning about {subject}`;
+       return `Today we are learning about ${subject}`;
     }
     grade() {
-       return `${this.name} recieves a perfect score on {subject}`;
+       return `${Student.name} recieves a perfect score on ${subject}`;
     }
 }
 
@@ -37,10 +37,10 @@ class Student extends Instructor {
         }
     
     PRAssignment(){
-      return  `${this.name} has submitted a PR for {subject}`;
+      return  `${this.name} has submitted a PR for ${subject}`;
     }
     sprintChallenge() {
-       return  `${this.name} has begun sprint challenge on {subject}`;
+       return  `${this.name} has begun sprint challenge on ${subject}`;
     }   
 }
 
@@ -52,10 +52,10 @@ class ProjectManagers extends Student {
     }
 
     standUp() {
-       return `${this.name} announces to {channel}, @channel standy times!`;
+       return `${this.name} announces to ${channel}, @channel standy times!`;
     }
     debugsCode() {
-      return  `${this.name} debugs {student.name}'s code on {subject}`;
+      return  `${this.name} debugs ${Student.name}'s code on ${subject}`;
     }
 }
 
